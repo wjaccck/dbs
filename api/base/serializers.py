@@ -1,8 +1,8 @@
 # encoding: utf8
 from rest_framework import serializers
 from netaddr import *
-from abstract.serializers import CommonHyperlinkedModelSerializer
-from .models import Ipv4Address, Ipv4Network
+from abstract.serializers import CommonHyperlinkedModelSerializer,NameHyperlinkedModelSerializer
+from api.base.models import Ipv4Address, Ipv4Network, Status, Machine_type, Role, Environment, IDC
 
 
 class IPv4AddressSerializer(CommonHyperlinkedModelSerializer):
@@ -32,6 +32,30 @@ class IPv4NetworkSerializer(CommonHyperlinkedModelSerializer):
 
         return super(IPv4NetworkSerializer, self).validate(attrs)
 
+class StatusSerializer(NameHyperlinkedModelSerializer):
+        class Meta:
+            fields = '__all__'
+            model = Status
+
+class Machine_typeSerializer(NameHyperlinkedModelSerializer):
+        class Meta:
+            fields = '__all__'
+            model = Machine_type
+
+class RoleSerializer(NameHyperlinkedModelSerializer):
+        class Meta:
+            fields = '__all__'
+            model = Role
+
+class EnvironmentSerializer(NameHyperlinkedModelSerializer):
+        class Meta:
+            fields = '__all__'
+            model = Environment
+
+class IDCSerializer(NameHyperlinkedModelSerializer):
+        class Meta:
+            fields = '__all__'
+            model = IDC
 
 # class Item_listserializers(serializers.ModelSerializer):
 #     item = serializers.StringRelatedField()
