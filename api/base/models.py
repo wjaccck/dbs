@@ -24,3 +24,10 @@ class Machine_type(NameModel):
 
 class Role(NameModel):
     pass
+
+class Environment(NameModel):
+    pass
+
+class IDC(NameModel):
+    pass
+
