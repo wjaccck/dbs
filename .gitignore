@@ -1,0 +1,8 @@
+*.pyc
+act.log
+env/
+*.zip
+api/migrations/0*.py
+.idea/
+
+static/

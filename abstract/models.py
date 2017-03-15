@@ -40,49 +40,50 @@ class UniqueNameDescModel(models.Model):
     def __unicode__(self):
         return self.name
 
-class API_BASE(models.Model):
-    pass
-    @staticmethod
-    def father():
-        return u'api'
-
-    class Meta:
-        abstract=True
-
-class IDC_BASE(models.Model):
-    pass
-    @staticmethod
-    def father():
-        return u'idc'
-
-    class Meta:
-        abstract=True
-
-class ITEM_BASE(models.Model):
-    pass
-    @staticmethod
-    def father():
-        return u'item'
-
-    class Meta:
-        abstract=True
-
-class APPLY_BASE(models.Model):
-    pass
-    @staticmethod
-    def father():
-        return u'apply'
-
-    class Meta:
-        abstract=True
-
-
-class HISTORY_BASE(models.Model):
-    pass
-    @staticmethod
-    def father():
-        return u'history'
-
-    class Meta:
-        abstract=True
+#
+# class API_BASE(models.Model):
+#     pass
+#     @staticmethod
+#     def father():
+#         return u'api'
+#
+#     class Meta:
+#         abstract=True
+#
+# class IDC_BASE(models.Model):
+#     pass
+#     @staticmethod
+#     def father():
+#         return u'idc'
+#
+#     class Meta:
+#         abstract=True
+#
+# class ITEM_BASE(models.Model):
+#     pass
+#     @staticmethod
+#     def father():
+#         return u'item'
+#
+#     class Meta:
+#         abstract=True
+#
+# class APPLY_BASE(models.Model):
+#     pass
+#     @staticmethod
+#     def father():
+#         return u'apply'
+#
+#     class Meta:
+#         abstract=True
+#
+#
+# class HISTORY_BASE(models.Model):
+#     pass
+#     @staticmethod
+#     def father():
+#         return u'history'
+#
+#     class Meta:
+#         abstract=True
 

@@ -1,3 +1,4 @@
+#coding=utf-8
 """
 Django settings for dbs project.
 
@@ -40,7 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'django_extensions',
-    'api',
+    'api.base',
     # 'django_select2',
     # 'webui',
     'bootstrap_pagination',
