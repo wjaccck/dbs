@@ -16,14 +16,25 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from rest_framework.authtoken import views
+from django.conf import settings
+if settings.DEBUG:
+    import debug_toolbar
+
+from rest_framework_swagger.views import get_swagger_view
+
+schema_view = get_swagger_view(title='Pastebin API')
+
 admin.autodiscover()
+
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     # url(r'xadmin/', include(xadmin.site.urls)),
+    url(r'^__debug__/', include(debug_toolbar.urls)),
     url(r'^api/token/', views.obtain_auth_token),
     url(r'^api/api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^api/base/', include('api.base.urls')),
+    url(r'^api/', schema_view),
     # url(r'^', include('webui.urls')),
     # url(r'^login/$','django_cas_ng.views.login',name='login'),
     # url(r'^logout/$','django_cas_ng.views.logout',{'next_page': '/',},name='logout'),
