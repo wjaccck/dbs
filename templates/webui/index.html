@@ -16,7 +16,7 @@
         <!-- BEGIN LOGO -->
         <div class="page-logo">
             <a href="{% url "index" %}">
-                <img src="{% static "img/logo1.jpg"  %}" alt="logo" class="logo-default"/>
+                <img src="{% static "img/logo.jpg"  %}" alt="logo" class="logo-default"/>
             </a>
             <div class="menu-toggler sidebar-toggler">
                 <!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->
@@ -58,7 +58,7 @@
                         </a>
                         <ul class="dropdown-menu dropdown-menu-default">
                             <li>
-                                <a href="page_todo.html">
+                                <a href="#">
                                     <i class="icon-rocket"></i> My Tasks <span class="badge badge-success">
 								7 </span>
                                 </a>
@@ -90,231 +90,36 @@
         </a>
 
     </li>
-
-        {% if active == 'idc' %}
+    {% if user.is_superuser %}
+        {% if active == 'base' %}
             <li class="active">
         {% else %}
             <li>
         {% endif %}
-        <a href="">
-        <i class="icon-grid"></i>
-        <span class="title">服务器记录</span>
-            <ul class="sub-menu">
-                <li>
-                    <a  href="{% url 'machine-list' %}?idc=hz">
-                    杭州</a>
-                </li>
-                <li>
-                    <a  href="{% url 'machine-list' %}?idc=qs">
-                    秋实</a>
-                </li>
-            </ul>
-        </a>
-    </li>
-
-        {% if active == 'item' %}
-            <li class="active">
-        {% else %}
-            <li>
-        {% endif %}
-        <a href="">
-        <i class=" icon-layers"></i>
-        <span class="title">应用信息</span>
-            <ul class="sub-menu">
-                <li>
-                    <a  href="{% url 'item-deploy-detail' %} ">
-                     部署概况
-                    </a>
-                </li>
-                <li>
-                    <a  href="{% url 'components-query' %} ">
-                     组件概况
-                    </a>
-                </li>
-                <li>
-                    <a  href="{% url 'item-list-list' %} ">
-                     项目详情
-                    </a>
-                </li>
-                <li>
-                    <a  href="{% url 'item-check-list' %} ">
-                     项目检测
-                    </a>
-                </li>
-                <li>
-                    <a  href="{% url 'nginx-list' %} ">
-                     杭州NGINX
-                    </a>
-                </li>
-            </ul>
-        </a>
-    </li>
-        {% if active == 'api' %}
-            <li class="active">
-        {% else %}
-            <li>
-        {% endif %}
-        <a href="">
-        <i class=" icon-settings"></i>
-        <span class="title">基础数据(杭州)</span>
-            <ul class="sub-menu">
-                <li>
-                    <a  href="{% url 'item-fun' %} ">
-                     反查
-                    </a>
-                </li>
-{#                <li>#}
-{#                    <a  href="{% url 'fun-detail' %} ">#}
-{#                     反查#}
-{#                    </a>#}
-{#                </li>#}
-
-                <li>
-                    <a  href="{% url 'item-name-list' %} ">
-                     项目列表
-                    </a>
-                </li>
-                <li>
-                    <a  href="{% url 'site-list' %} ">
-                    站点</a>
-                </li>
-                <li>
-                    <a  href="{% url 'tech-list' %} ">
-                     技术栈
-                    </a>
-                </li>
-                <li>
-                    <a  href="{% url 'mysql-list' %} ">
-                     Mysql 信息
-                    </a>
-                </li>
-                <li>
-                    <a  href="{% url 'application-list' %} ">
-                     应用端口信息
-                    </a>
-                </li>
-                <li>
-                    <a  href="{% url 'redis-list' %} ">
-                     Redis 信息
-                    </a>
-                </li>
-                <li>
-                    <a  href="{% url 'codis-list' %} ">
-                     Codis 信息
-                    </a>
-                </li>
-
-                <li>
-                    <a  href="{% url 'sentinel-list' %} ">
-                     Sentinel 信息
-                    </a>
-                </li>
-                <li>
-                    <a  href="{% url 'memcache-list' %} ">
-                     Memcache 信息
-                    </a>
-                </li>
-                <li>
-                    <a  href="{% url 'es-list' %} ">
-                     Es 信息
-                    </a>
-                </li>
-                <li>
-                    <a  href="{% url 'mcq-list' %} ">
-                     Mcq 信息
-                    </a>
-                </li>
-                <li>
-                    <a  href="{% url 'tfs-list' %} ">
-                     Tfs 信息
-                    </a>
-                </li>
-                <li>
-                    <a  href="{% url 'zookeeper-list' %} ">
-                     Zookeeper
-                    </a>
-                </li>
-                <li>
-                    <a  href="{% url 'kafka-list' %} ">
-                     Kafka
-                    </a>
-                </li>
-
-                <li>
-                    <a  href="{% url 'mq-list' %} ">
-                     RocketMQ
-                    </a>
-                </li>
-            </ul>
-        </a>
-    </li>
-
-        {% if active == 'apply' %}
-            <li class="active">
-        {% else %}
-            <li>
-        {% endif %}
-        <a href="">
-        <i class="icon-home"></i>
-        <span class="title">新申请</span>
-            <ul class="sub-menu">
-                <li>
-                    <a  href="#">
-                        KVM
-                    </a>
-                </li>
-                <li>
-                    <a  href="{% url 'docker-list' %} ">
-                        Docker
-                    </a>
-                </li>
-            </ul>
-        </a>
-    </li>
-
-
-        {% if active == 'history' %}
-            <li class="active">
-        {% else %}
-            <li>
-        {% endif %}
-        <a href="">
-        <i class="icon-home"></i>
-        <span class="title">历史</span>
-            <ul class="sub-menu">
-                <li>
-                    <a  href="{% url 'ops-act-history' %} ">
-                        线上操作
-                    </a>
-                </li>
-                <li>
-                    <a  href="{% url 'ops-plan' %}?status=进行中 ">
-                        运维跟踪事项
-                    </a>
-                </li>
-            </ul>
-        </a>
-    </li>
-
-
-        {% if active == 'check' %}
-            <li class="active">
-        {% else %}
-            <li>
-        {% endif %}
-        <a href="">
-        <i class="icon-home"></i>
-        <span class="title">检测</span>
-            <ul class="sub-menu">
-                <li>
-                    <a  href="{% url 'dns-check' %} ">
-                        DNS查询
-                    </a>
-                </li>
-            </ul>
-        </a>
-    </li>
-
+                <a href="">
+                <i class="icon-grid"></i>
+                <span class="title">基础数据</span>
+                    <ul class="sub-menu">
+                        <li>
+                            <a  href="{% url 'status-list' %}">
+                            状态</a>
+                        </li>
+                        <li>
+                            <a  href="{% url 'machine-type-list' %}">
+                            服务器类型</a>
+                        </li>
+                        <li>
+                            <a  href="{% url 'role-list' %}">
+                            角色</a>
+                        </li>
+                        <li>
+                            <a  href="{% url 'environment-list' %}">
+                            环境</a>
+                        </li>
+                    </ul>
+                </a>
+            </li>
+    {% endif %}
 </ul>
 
 {% endblock %}
@@ -338,7 +143,7 @@
                 <div class="portlet-body">
                     <p>
 
-                            本应用主要是为了记录杭州机房接手服务器情况，目前总计有<h4 class="font-red-haze">{{ total_list }}条D记录</h4>。
+                            <h4>为了实现是个现代化，前进！！！</h4>
 
                     </p>
                 </div>
@@ -347,91 +152,18 @@
     			<div class="row margin-top-10">
 				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
 {#                    <a href="{% url 'dc-list' %}">#}
-                        <div class="dashboard-stat2">
-                            <div class="display">
-                                <div class="number">
-                                    <small>型号</small>
-{#                                    <h3 class="font-green-sharp">{{ dc_list }}</h3>#}
-                                        <br>
-
-                                    </br>
-                                    {% for m in product %}
-                                        <br>
-                                                {{ m.name }}({{ m.number }})
-
-                                        </br>
-                                    {% endfor %}
-
-                                </div>
-                            </div>
-                        </div>
 {#                    </a>#}
 				</div>
 				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
 {#                    <a href="{% url 'app-list' %}">#}
-                        <div class="dashboard-stat2">
-                            <div class="display">
-                                <div class="number">
-{#                                    <h3 class="font-red-haze">{{ app_list }}</h3>#}
-                                    <small>系统</small>
-                                    <br>
-
-                                    </br>
-                                    {% for m in sys %}
-                                        <br>
-                                                {{ m.name }}({{ m.number }})
-
-                                        </br>
-                                    {% endfor %}
-                                </div>
-                            </div>
-                        </div>
 {#                    </a>#}
 				</div>
 				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
 {#                    <a href="{% url 'env-list' %}">#}
-                        <div class="dashboard-stat2">
-                            <div class="display">
-                                <div class="number">
-{#                                    <h3 class="font-blue-sharp">{{ env_list }}</h3>#}
-                                    <small>环境数量</small>
-                                    <br>
-
-                                    </br>
-                                    {% for m in idc_detail %}
-                                        <br>
-                                                {{ m.name }}({{ m.number }})
-
-                                        </br>
-                                    {% endfor %}
-                                </div>
-                            </div>
-                        </div>
 {#                    </a>#}
 				</div>
 				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
 {#					<a href="{% url 'module-list' %}">#}
-                        <div class="dashboard-stat2">
-                            <div class="display">
-                                <div class="number">
-{#                                    <h3 class="font-purple-soft">{{ module_list }}</h3>#}
-                                    <small>模块</small>
-                                    <br>
-
-                                    </br>
-                                    {% for m in item_summary %}
-                                        <br>
-{#                                                <a href="{% url item-name-list %}?dev_owner={{ m.name }}">{{ m.name }}({{ m.number }})<a>#}
-                                            <a  href="{% url 'item-list-list' %}?dev_owner={{ m.name }} ">
-                                                {{ m.name }}({{ m.number }})
-                                            </a>
-                                        </br>
-
-                                    {% endfor %}
-
-                                </div>
-                            </div>
-					    </div>
 {#                    </a>#}
 				</div>
 			</div>

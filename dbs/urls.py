@@ -35,7 +35,7 @@ urlpatterns = [
     url(r'^api/api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^api/base/', include('api.base.urls')),
     url(r'^api/', schema_view),
-    # url(r'^', include('webui.urls')),
+    url(r'^', include('webui.urls')),
     # url(r'^login/$','django_cas_ng.views.login',name='login'),
     # url(r'^logout/$','django_cas_ng.views.logout',{'next_page': '/',},name='logout'),
 ]

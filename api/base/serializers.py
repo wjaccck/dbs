@@ -32,27 +32,27 @@ class IPv4NetworkSerializer(CommonHyperlinkedModelSerializer):
 
         return super(IPv4NetworkSerializer, self).validate(attrs)
 
-class StatusSerializer(NameHyperlinkedModelSerializer):
+class StatusSerializer(CommonHyperlinkedModelSerializer):
         class Meta:
             fields = '__all__'
             model = Status
 
-class Machine_typeSerializer(NameHyperlinkedModelSerializer):
+class Machine_typeSerializer(CommonHyperlinkedModelSerializer):
         class Meta:
             fields = '__all__'
             model = Machine_type
 
-class RoleSerializer(NameHyperlinkedModelSerializer):
+class RoleSerializer(CommonHyperlinkedModelSerializer):
         class Meta:
             fields = '__all__'
             model = Role
 
-class EnvironmentSerializer(NameHyperlinkedModelSerializer):
+class EnvironmentSerializer(CommonHyperlinkedModelSerializer):
         class Meta:
             fields = '__all__'
             model = Environment
 
-class IDCSerializer(NameHyperlinkedModelSerializer):
+class IDCSerializer(CommonHyperlinkedModelSerializer):
         class Meta:
             fields = '__all__'
             model = IDC
