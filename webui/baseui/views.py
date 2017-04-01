@@ -23,7 +23,7 @@ class Status_UpdateViewSet(Base_UpdateViewSet):
     success_url = reverse_lazy('status-list')
 
 class Status_ListViewSet(Base_ListViewSet):
-    Status.objects.all().count()
+    # Status.objects.all().count()
     model = Status
     template_name = 'api/base/status.html'
     paginate_by = 10
