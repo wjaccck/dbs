@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'django_extensions',
     'api.base',
+    'api.machine',
     'django_select2',
     'webui',
     'bootstrap_pagination',
