@@ -5,8 +5,11 @@ from django.db import models
 
 class CommonModel(models.Model):
     # Meta data for one object.
-    created_date = models.DateTimeField(auto_now_add=True)
+    created_date = models.DateTimeField(auto_now_add=True,db_index=True)
     modified_date = models.DateTimeField(auto_now=True)
+    creator = models.ForeignKey('auth.user', related_name='%(app_label)s_%(class)s_creator', verbose_name='creator')
+    last_modified_by = models.ForeignKey('auth.user', related_name='%(app_label)s_%(class)s_last_modified_by',
+                                         verbose_name='last modified by')
 
     class Meta:
         abstract = True
@@ -16,7 +19,7 @@ class NameModel(models.Model):
     # Meta data for one object.
     creator = models.ForeignKey('auth.user', related_name='%(app_label)s_%(class)s_creator', verbose_name='creator')
     last_modified_by = models.ForeignKey('auth.user', related_name='%(app_label)s_%(class)s_last_modified_by', verbose_name='last modified by')
-    created_date = models.DateTimeField(auto_now_add=True)
+    created_date = models.DateTimeField(auto_now_add=True,db_index=True)
     modified_date = models.DateTimeField(auto_now=True)
 
     class Meta:
