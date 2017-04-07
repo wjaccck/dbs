@@ -116,10 +116,32 @@
                             <a  href="{% url 'environment-list' %}">
                             环境</a>
                         </li>
+                        <li>
+                            <a  href="{% url 'idc-list' %}">
+                            IDC</a>
+                        </li>
                     </ul>
                 </a>
             </li>
     {% endif %}
+
+        {% if active == 'assets' %}
+            <li class="active">
+        {% else %}
+            <li>
+        {% endif %}
+                <a href="">
+                <i class="icon-grid"></i>
+                <span class="title">资产</span>
+                    <ul class="sub-menu">
+                        <li>
+                            <a  href="{% url 'machine-list' %}">
+                            服务器</a>
+                        </li>
+                    </ul>
+                </a>
+            </li>
+
 </ul>
 
 {% endblock %}

@@ -33,6 +33,10 @@ class Base_CreateViewSet(CreateView):
         context['is_superuser']=self.request.user.is_superuser
         context['active']=self.model.father()
         return context
+    def get_form(self, data = None, files = None, **kwargs):
+        kwargs['creator'] = self.request.user
+        kwargs['last_modified_by'] = self.request.user
+        return super(Base_CreateViewSet, self).get_form(data, files, **kwargs)
 
 class Base_UpdateViewSet(UpdateView):
 
@@ -46,6 +50,9 @@ class Base_UpdateViewSet(UpdateView):
         context['is_superuser']=self.request.user.is_superuser
         context['active']=self.model.father()
         return context
+    def get_form(self, data = None, files = None, **kwargs):
+        kwargs['last_modified_by'] = self.request.user
+        return super(Base_UpdateViewSet, self).get_form(data, files, **kwargs)
 
 class Base_DeleteViewSet(UpdateView):
 

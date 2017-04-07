@@ -56,7 +56,7 @@
 						</div>
 
 						<div class="portlet-body">
-                        <a href="{% url 'role-create' %}" class="btn btn-success">{{ create }}</a>
+                        <a href="{% url 'idc-create' %}" class="btn btn-success">{{ create }}</a>
                         <div class="table-responsive">
                             <table class="table table-bordered">
 {#							<table class="table table-striped table-hover table-bordered" id="sample_editable_1">#}
@@ -95,8 +95,9 @@
                                         <td>{{ m.created_date |date:'Y-m-d H:i:s' }}</td>
                                         <td>{{ m.creator }}</td>
                                         <td>{{ m.last_modified_by }}</td>
+
                                         {% if user.is_superuser %}
-                                        <td><a  href="{% url 'role-update' m.id %} ">修改</a></td>
+                                        <td><a  href="{% url 'idc-update' m.id %} ">修改</a></td>
                                         {% endif %}
 {#                                        <td><a  href="{% url 'name-list' %}?status={{ m.content }}">详情</a></td>#}
                                     </tr>

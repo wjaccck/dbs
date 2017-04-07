@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django_extensions',
     'api.base',
     'api.machine',
+    'api.resource_pool',
     'django_select2',
     'webui',
     'bootstrap_pagination',
@@ -124,7 +125,7 @@ WSGI_APPLICATION = 'dbs.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'db1.sqlite3'),
     }
 }
 
@@ -288,29 +289,29 @@ LOGOUT_REDIRECT_URL='/login/'
 
 
 # Select 2
-# AUTO_RENDER_SELECT2_STATICS = True
-# SELECT2_BOOTSTRAP = True
-# # Set the cache backend to select2
-# SELECT2_CACHE_BACKEND = 'select2'
-# REDIS_TIMEOUT=7*24*60*60
-# CUBES_REDIS_TIMEOUT=60*60
-# NEVER_REDIS_TIMEOUT=365*24*60*60
-# CACHES = {
-#     "default": {
-#         "BACKEND": "django_redis.cache.RedisCache",
-#         "LOCATION": "redis://127.0.0.1:6379/3",
-#         "OPTIONS": {
-#             "CLIENT_CLASS": "django_redis.client.DefaultClient",
-#         }
-#     },
-#     'select2': {
-#         "BACKEND": "django_redis.cache.RedisCache",
-#         "LOCATION": "redis://127.0.0.1:6379/4",
-#         "OPTIONS": {
-#             "CLIENT_CLASS": "django_redis.client.DefaultClient",
-#         }
-#     }
-# }
+AUTO_RENDER_SELECT2_STATICS = True
+SELECT2_BOOTSTRAP = True
+# Set the cache backend to select2
+SELECT2_CACHE_BACKEND = 'select2'
+REDIS_TIMEOUT=7*24*60*60
+CUBES_REDIS_TIMEOUT=60*60
+NEVER_REDIS_TIMEOUT=365*24*60*60
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379/3",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    },
+    'select2': {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379/4",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    }
+}
 
 DEBUG_TOOLBAR_CONFIG = {
     'JQUERY_URL': '//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js',

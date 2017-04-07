@@ -71,6 +71,12 @@
                                 <th>
 									 创建日期
 								</th>
+                                <th>
+									 创建者
+								</th>
+                                <th>
+									 修改者
+								</th>
                                 {% if user.is_superuser %}
                                 <th>
                                     修改
@@ -87,6 +93,9 @@
                                         <td>{{ m.id }}</td>
                                         <td>{{ m.name }}</td>
                                         <td>{{ m.created_date |date:'Y-m-d H:i:s' }}</td>
+                                        <td>{{ m.creator }}</td>
+                                        <td>{{ m.last_modified_by }}</td>
+
                                         {% if user.is_superuser %}
                                         <td><a  href="{% url 'status-update' m.id %} ">修改</a></td>
                                         {% endif %}

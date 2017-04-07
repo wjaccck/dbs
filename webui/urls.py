@@ -7,6 +7,7 @@ urlpatterns = [
     url(r'^$',index,name='index'),
 
     url(r'^base/', include('webui.baseui.urls')),
+    url(r'^asset/', include('webui.machineui.urls')),
 
     url(r'^login/$',
         login,

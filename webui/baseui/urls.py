@@ -23,4 +23,10 @@ urlpatterns = [
     url(r'^environment/update/(?P<pk>\d+)/$', login_required(views.Environment_UpdateViewSet.as_view()), name='environment-update'),
     url(r'^environment/create/$', login_required(views.Environment_CreateViewSet.as_view()), name='environment-create'),
 
+    ###idc
+    url(r'^idc/$', login_required(views.IDC_ListViewSet.as_view()), name='idc-list'),
+    url(r'^idc/update/(?P<pk>\d+)/$', login_required(views.IDC_UpdateViewSet.as_view()),
+        name='idc-update'),
+    url(r'^idc/create/$', login_required(views.IDC_CreateViewSet.as_view()), name='idc-create'),
+
 ]

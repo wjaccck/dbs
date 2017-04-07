@@ -38,6 +38,15 @@ class BASE_FATHER(models.Model):
     class Meta:
         abstract=True
 #
+
+class ASSETS_FATHER(models.Model):
+    pass
+    @staticmethod
+    def father():
+        return u'assets'
+
+    class Meta:
+        abstract=True
 # class IDC_BASE(models.Model):
 #     pass
 #     @staticmethod

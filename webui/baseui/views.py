@@ -7,14 +7,12 @@ import operator
 from abstract.views import Base_CreateViewSet,Base_ListViewSet,Base_UpdateViewSet
 
 
+
 class Status_CreateViewSet(Base_CreateViewSet):
     model = Status
     form_class = forms.StatusForm
     template_name = 'api/base/status_form.html'
     success_url = reverse_lazy('status-list')
-    def get_form(self, data = None, files = None, **kwargs):
-        kwargs['creator'] = self.request.user
-        return super(Status_CreateViewSet, self).get_form(data, files, **kwargs)
 
 class Status_UpdateViewSet(Base_UpdateViewSet):
     model = Status
@@ -23,7 +21,7 @@ class Status_UpdateViewSet(Base_UpdateViewSet):
     success_url = reverse_lazy('status-list')
 
 class Status_ListViewSet(Base_ListViewSet):
-    # Status.objects.all().count()
+    Status.objects.all().count()
     model = Status
     template_name = 'api/base/status.html'
     paginate_by = 10
@@ -131,3 +129,34 @@ class Environment_ListViewSet(Base_ListViewSet):
             return Environment.objects.filter(name__icontains=name)
         else:
             return Environment.objects.all()
+
+
+class IDC_CreateViewSet(Base_CreateViewSet):
+    model = IDC
+    form_class = forms.IDCForm
+    template_name = 'api/base/idc_form.html'
+    success_url = reverse_lazy('idc-list')
+
+class IDC_UpdateViewSet(Base_UpdateViewSet):
+    model = IDC
+    form_class = forms.IDCForm
+    template_name = 'api/base/idc_form.html'
+    success_url = reverse_lazy('idc-list')
+
+class IDC_ListViewSet(Base_ListViewSet):
+    IDC.objects.all().count()
+    model = IDC
+    template_name = 'api/base/idc.html'
+    paginate_by = 10
+
+    def get_queryset(self):
+        name=None
+        try:
+            name=self.request.GET['keyword']
+        except:
+            pass
+
+        if name:
+            return IDC.objects.filter(name__icontains=name)
+        else:
+            return IDC.objects.all()

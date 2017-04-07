@@ -4,5 +4,5 @@ env/
 *.zip
 api/migrations/0*.py
 .idea/
-
+templates/api/bak/
 static/
