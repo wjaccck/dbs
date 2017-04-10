@@ -32,9 +32,28 @@ class Machine_typeModelSelect2Widget(BaseModelSelect2Widget):
         'name__istartswith',
         'pk__startswith',
     ]
-# class IDCModelSelect2MultipleWidget(BaseModelSelect2MultipleWidget):
-#     search_fields = [
-#         'name__istartswith',
-#         'pk__startswith',
-#     ]
+
+class MachineModelSelect2Widget(BaseModelSelect2Widget):
+    search_fields = [
+        'cmdb_sn__istartswith',
+        'pk__startswith',
+    ]
+
+class IpModelSelect2Widget(BaseModelSelect2Widget):
+    search_fields = [
+        'name__istartswith',
+        'pk__startswith',
+    ]
+
+class IpsModelSelect2MultipleWidget(BaseModelSelect2MultipleWidget):
+    search_fields = [
+        'name__istartswith',
+        'pk__startswith',
+    ]
+
+class RoleModelSelect2Widget(BaseModelSelect2Widget):
+    search_fields = [
+        'name__istartswith',
+        'pk__startswith',
+    ]
 

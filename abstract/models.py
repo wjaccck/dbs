@@ -47,14 +47,14 @@ class ASSETS_FATHER(models.Model):
 
     class Meta:
         abstract=True
-# class IDC_BASE(models.Model):
-#     pass
-#     @staticmethod
-#     def father():
-#         return u'idc'
-#
-#     class Meta:
-#         abstract=True
+class RESOURCE_BASE(models.Model):
+    pass
+    @staticmethod
+    def father():
+        return u'resource'
+
+    class Meta:
+        abstract=True
 #
 # class ITEM_BASE(models.Model):
 #     pass

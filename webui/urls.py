@@ -8,6 +8,7 @@ urlpatterns = [
 
     url(r'^base/', include('webui.baseui.urls')),
     url(r'^asset/', include('webui.machineui.urls')),
+    url(r'^resource/', include('webui.resource_poolui.urls')),
 
     url(r'^login/$',
         login,
