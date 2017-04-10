@@ -42,7 +42,7 @@ class Ipv4Address_ApiViewSet(Base_ApiViewSet):
     serializer_class = IPv4AddressSerializer
 
 
-class Ipv4Network_ApiViewSet(viewsets.ModelViewSet):
+class Ipv4Network_ApiViewSet(Base_ApiViewSet):
     # Allow methods
     http_method_names = ['get', 'post']
     queryset=Ipv4Network.objects.select_related('creator', 'last_modified_by')\
